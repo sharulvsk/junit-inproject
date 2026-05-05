@@ -1,0 +1,159 @@
+1. Introduction to JUnit 5 Testing Framework : 
+ - JUnit 5 is the latest version of the popular Java testing framework used for unit testing Java applications.
+
+ - It helps developers:
+
+   - Test Java code automatically
+   - Find bugs early
+   - Improve code quality
+   - Support Test-Driven Development (TDD)
+
+ - JUnit is widely used with:
+
+    - Spring Boot
+    - Maven
+    - Gradle
+    - IntelliJ IDEA
+    - Eclipse
+    - VS Code
+
+2. Unit Testing :
+    - Unit Testing is a software testing technique where individual units or components of an application are tested independently.
+    - A unit can be: 
+        - A method
+        - A function
+        - A class
+   Traditional Testing :
+   - Traditional Testing usually refers to manual testing or broader testing approaches where the complete application is tested as a whole.
+   - It includes:
+        - Manual Testing
+        - Integration Testing
+        - System Testing
+        - End-to-End Testing
+   - Example: A tester manually checks whether: Login page works, Dashboard loads and Database stores data properly
+
+3. Manual Unit Testing: 
+   - Demonstrates manual unit testing steps without a testing framework
+   - Involving: 
+        - method invocation, 
+        - input preparation, 
+        - result verification, and 
+        - developer alerting
+
+4. Benefits of JUnit 5:
+   - 1. Easy and Simple to Use
+        - JUnit 5 provides:
+           - Simple annotations
+           - Clean syntax
+           - Readable test cases
+        - Example:
+            @Test
+            void testAddition() {
+                assertEquals(10, 5 + 5);
+            } 
+   - 2. Improved Annotation Support
+        - JUnit 5 introduces powerful annotations like:
+           - Annotation	    Purpose
+             @Test	        Defines test method
+             @BeforeEach	Runs before each test
+             @AfterEach	    Runs after each test
+             @DisplayName	Custom test name
+             @Disabled	    Skips tests
+           - Example:
+               @DisplayName("Login Test")
+               @Test
+               void loginTest() {
+                   assertTrue(true);
+               }
+   - 3. Better Assertions
+        - JUnit 5 provides enhanced assertion methods for validation.
+        - Common assertions:
+           - assertEquals()
+           - assertTrue()
+           - assertFalse()
+           - assertThrows()
+        - Example: 
+           assertThrows(
+               ArithmeticException.class,
+               () -> {
+                   int x = 10 / 0;
+               }
+           );
+   - 4. Supports Lambda Expressions 
+        - JUnit 5 fully supports Java 8 features like Lambda expressions. 
+        - Example: 
+           assertThrows(
+               ArithmeticException.class,
+               () -> System.out.println(10 / 0)
+           );
+        - This makes code shorter and cleaner.
+   - 5. Modular Architecture
+      - JUnit 5 is divided into modules:
+         - Module	        Purpose
+         - JUnit Platform	Provides APIs, runs testing and reports
+         - JUnit Jupiter	Main testing API(writes Junit tests)
+         - JUnit Vintage	Supports old JUnit tests
+   - 6. Backward Compatibility
+      - JUnit 5 can run:
+         - JUnit 3 tests
+         - JUnit 4 tests
+      - using the Vintage engine.
+      - This helps organizations migrate gradually.
+   - 7. Dynamic Tests
+      - JUnit 5 supports creating tests dynamically at runtime.
+      - Example:
+           @TestFactory
+           Collection<DynamicTest> dynamicTests() { 
+               return Arrays.asList(
+                   DynamicTest.dynamicTest(
+                       "Addition Test",
+                       () -> assertEquals(4, 2 + 2)
+                   )
+               );
+           }
+   - 8. Nested Testing
+      - Nested tests improve organization.
+      - Example:
+           @Nested
+           class LoginTests {
+           
+               @Test
+               void validLogin() {
+               }
+           
+               @Test
+               void invalidLogin() {
+               }
+           }
+   - 9. Parameterized Testing
+      - Run the same test with multiple inputs.
+      - Example:
+           @ParameterizedTest
+           @ValueSource(ints = {1, 2, 3})
+           void testNumbers(int number) { 
+               assertTrue(number > 0);
+           } 
+      - Benefits:
+           - Reduces duplicate code
+           - Improves test coverage
+   - 10. Faster Test Execution
+      - JUnit 5 supports:
+           - Parallel execution
+           - Better performance optimization
+      - This reduces testing time in large applications.
+   - 11. Better IDE Support
+      - JUnit 5 works smoothly with: 
+           - IntelliJ IDEA
+           - Eclipse
+           - VS Code
+           - NetBeans
+      - Features include: 
+           - One-click test execution
+           - Debugging
+           - Test reports
+   - 12. CI/CD Integration
+      - JUnit 5 integrates with: 
+           - Jenkins
+           - GitHub Actions
+           - GitLab
+      - This enables automated testing pipelines.
