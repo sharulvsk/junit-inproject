@@ -186,7 +186,6 @@
    A. Maven structure: (in C:\From Destop\junit-inproject)
      mvn archetype:generate -DgroupId=com.example -DartifactId=with-maven -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
                         or
-     Easiest fix: create the Maven project directly from Visual Studio Code instead of terminal.
-     open folder(junit-inproject) -> 
+     Easiest : Manually create pom.xml file
    B. Run Maven Test:
      mvn test
