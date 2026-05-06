@@ -157,3 +157,36 @@
            - GitHub Actions
            - GitLab
       - This enables automated testing pipelines.
+
+5. Commands:
+
+   A. Compile:
+      javac -cp "lib/*" -d bin src/*.java
+   B. Run Tests:
+      java -jar lib/junit-platform-console-standalone-1.10.2.jar --class-path bin --scan-class-path
+   
+6. workflow:
+
+   Calculator.java
+   CalculatorTest.java
+           ↓
+   javac compiles files
+           ↓
+   .class files stored in bin
+           ↓
+   JUnit jar scans bin
+           ↓
+   Finds @Test methods
+           ↓
+   Runs tests
+           ↓
+   Pass / Fail result
+
+7. Maven Project:
+   A. Maven structure: (in C:\From Destop\junit-inproject)
+     mvn archetype:generate -DgroupId=com.example -DartifactId=with-maven -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+                        or
+     Easiest fix: create the Maven project directly from Visual Studio Code instead of terminal.
+     open folder(junit-inproject) -> 
+   B. Run Maven Test:
+     mvn test

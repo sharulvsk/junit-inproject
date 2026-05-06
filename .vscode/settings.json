@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "without-maven/lib/junit-platform-console-standalone-1.10.2.jar"
+    ]
+}
